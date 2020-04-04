@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ab13b1db4fb522d3c7d9b9eda40e2389c266c872813cf5ca5c6df3bcab21bd7e
+-- hash: 816efd7ee71b7c4f03225bf25d8ba404be5f0255a562724151a8080d2b79186f
 
 name:           project1
 version:        0.1.0.0
@@ -33,7 +33,31 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , base16-bytestring
+    , base64-bytestring
+    , beam-core
+    , beam-mysql
+    , beam-postgres
+    , hashmap
+    , hspec
+    , http-client
+    , http-client-tls
+    , http-types
+    , lens
+    , lens-aeson
+    , memory
+    , postgresql-simple
+    , random
+    , regex-compat
+    , regex-tdfa
+    , scientific
+    , servant
+    , servant-client
+    , servant-server
+    , servant-xml
+    , text
   default-language: Haskell2010
 
 executable project1-exe
@@ -44,8 +68,32 @@ executable project1-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , base16-bytestring
+    , base64-bytestring
+    , beam-core
+    , beam-mysql
+    , beam-postgres
+    , hashmap
+    , hspec
+    , http-client
+    , http-client-tls
+    , http-types
+    , lens
+    , lens-aeson
+    , memory
+    , postgresql-simple
     , project1
+    , random
+    , regex-compat
+    , regex-tdfa
+    , scientific
+    , servant
+    , servant-client
+    , servant-server
+    , servant-xml
+    , text
   default-language: Haskell2010
 
 test-suite project1-test
@@ -57,6 +105,30 @@ test-suite project1-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , base16-bytestring
+    , base64-bytestring
+    , beam-core
+    , beam-mysql
+    , beam-postgres
+    , hashmap
+    , hspec
+    , http-client
+    , http-client-tls
+    , http-types
+    , lens
+    , lens-aeson
+    , memory
+    , postgresql-simple
     , project1
+    , random
+    , regex-compat
+    , regex-tdfa
+    , scientific
+    , servant
+    , servant-client
+    , servant-server
+    , servant-xml
+    , text
   default-language: Haskell2010
