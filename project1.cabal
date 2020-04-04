@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2dd04cd9e9beedfd2b46ce57ccde38d3aa083a7d3bb4474565554ac20f7f860a
+-- hash: ecccac4eb836cbca677434e3c83b9c220da84eeac87e70635e9c3c54f9f27624
 
 name:           project1
 version:        0.1.0.0
@@ -27,18 +27,23 @@ source-repository head
 
 library
   exposed-modules:
+      Calculator
       Lib
+      UserAPI
   other-modules:
       Paths_project1
   hs-source-dirs:
       src
   build-depends:
       aeson
+    , attoparsec
     , base >=4.7 && <5
+    , base-compat
     , base16-bytestring
     , base64-bytestring
     , beam-core
     , beam-postgres
+    , bytestring
     , case-insensitive
     , containers
     , cryptonite
@@ -51,10 +56,12 @@ library
     , hspec
     , http-client
     , http-client-tls
+    , http-media
     , http-types
     , lens
     , lens-aeson
     , memory
+    , mtl
     , postgresql-simple
     , random
     , regex-compat
@@ -64,7 +71,9 @@ library
     , servant-client
     , servant-server
     , servant-xml
+    , string-conversions
     , text
+    , time
     , unordered-containers
     , vault >=0.3
     , vector
@@ -83,11 +92,14 @@ executable project1-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
+    , attoparsec
     , base >=4.7 && <5
+    , base-compat
     , base16-bytestring
     , base64-bytestring
     , beam-core
     , beam-postgres
+    , bytestring
     , case-insensitive
     , containers
     , cryptonite
@@ -100,10 +112,12 @@ executable project1-exe
     , hspec
     , http-client
     , http-client-tls
+    , http-media
     , http-types
     , lens
     , lens-aeson
     , memory
+    , mtl
     , postgresql-simple
     , project1
     , random
@@ -114,7 +128,9 @@ executable project1-exe
     , servant-client
     , servant-server
     , servant-xml
+    , string-conversions
     , text
+    , time
     , unordered-containers
     , vault >=0.3
     , vector
@@ -134,11 +150,14 @@ test-suite project1-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
+    , attoparsec
     , base >=4.7 && <5
+    , base-compat
     , base16-bytestring
     , base64-bytestring
     , beam-core
     , beam-postgres
+    , bytestring
     , case-insensitive
     , containers
     , cryptonite
@@ -151,10 +170,12 @@ test-suite project1-test
     , hspec
     , http-client
     , http-client-tls
+    , http-media
     , http-types
     , lens
     , lens-aeson
     , memory
+    , mtl
     , postgresql-simple
     , project1
     , random
@@ -165,7 +186,9 @@ test-suite project1-test
     , servant-client
     , servant-server
     , servant-xml
+    , string-conversions
     , text
+    , time
     , unordered-containers
     , vault >=0.3
     , vector

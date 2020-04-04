@@ -59,6 +59,13 @@ dependencies:
   - word8
   - case-insensitive
   - errors >= 2.3.0
+  - time
+  - http-media
+  - string-conversions
+  - bytestring
+  - attoparsec
+  - mtl
+  - base-compat
 
 library:
   source-dirs: src
