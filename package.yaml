@@ -25,7 +25,6 @@ dependencies:
   - base16-bytestring
   - base64-bytestring
   - beam-core
-  - beam-mysql
   - beam-postgres
   - scientific
   - servant
@@ -45,6 +44,21 @@ dependencies:
   - random
   - regex-compat
   - regex-tdfa
+  - hakyll
+  - containers
+  - cryptonite
+  - cryptostore
+  - data-default
+  - directory
+  - unordered-containers
+  - vault >= 0.3
+  - vector
+  - wai >= 3.2.2.1
+  - warp
+  - x509
+  - word8
+  - case-insensitive
+  - errors >= 2.3.0
 
 library:
   source-dirs: src
