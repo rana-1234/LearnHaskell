@@ -8,14 +8,15 @@ import UserAPI
 import Calculator
 import Network.Wai.Handler.Warp
 import Database.PostgreSQL.Simple
+import qualified Registration.RegisterUser as Registration
 
 main :: IO ()
-main = putStrLn ("This is where the execution starts") *> setupApp *> runCalculator
+main = putStrLn ("This is where the execution starts") *> setupApp
 
 setupApp :: IO ()
 setupApp = do
-    _ <- makeConnectionToRanaPaymentDb
-    return ()
+    conn <- makeConnectionToRanaPaymentDb
+    Registration.startRegisterUserApp conn
 
 ranaPaymentDb :: ConnectInfo
 ranaPaymentDb =
@@ -27,11 +28,12 @@ ranaPaymentDb =
     , connectPort     = 5432
     }
 
-makeConnectionToRanaPaymentDb :: IO ()
+makeConnectionToRanaPaymentDb :: IO (Connection)
 makeConnectionToRanaPaymentDb = do
     putStrLn ("Connecting to Rana Payment db... ")
     conn <- connect ranaPaymentDb
     mapM_ print =<< (query_ conn "SELECT 1+1" :: IO [Only Int])
+    return conn
 
 makeDBConnection :: IO()
 makeDBConnection = do

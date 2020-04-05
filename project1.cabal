@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d9e741fe144c5ef78aaf20a7a65153e2ba6d19011f475769a582f4450d154294
+-- hash: 13257d0e357decf8e5dc2a6ae67787407cbf245bc41446fff116996a9d28a73d
 
 name:           project1
 version:        0.1.0.0
@@ -32,6 +32,7 @@ library
       Registration.DB.RegisterUserTableInfo
       Registration.DB.RegisterUserTableQuery
       Registration.RegisterUser
+      Registration.RegisterUserType
       UserAPI
   other-modules:
       Paths_project1
@@ -78,6 +79,7 @@ library
     , text
     , time
     , unordered-containers
+    , utf8-string
     , vault >=0.3
     , vector
     , wai >=3.2.2.1
@@ -135,6 +137,7 @@ executable project1-exe
     , text
     , time
     , unordered-containers
+    , utf8-string
     , vault >=0.3
     , vector
     , wai >=3.2.2.1
@@ -193,6 +196,7 @@ test-suite project1-test
     , text
     , time
     , unordered-containers
+    , utf8-string
     , vault >=0.3
     , vector
     , wai >=3.2.2.1

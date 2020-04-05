@@ -66,6 +66,7 @@ dependencies:
   - attoparsec
   - mtl
   - base-compat
+  - utf8-string
 
 library:
   source-dirs: src
