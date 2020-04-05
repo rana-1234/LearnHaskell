@@ -9,9 +9,12 @@
 {-# LANGUAGE UndecidableInstances #-}
 {-# LANGUAGE ImpredicativeTypes #-}
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 module Database.Table.UserRegistration where
 
+import Prelude as Prelude
 import Database.Beam as B
 import Database.PostgreSQL.Simple
 import Database.Beam.Postgres
@@ -46,4 +49,32 @@ userRegistrationEntityModification = B.setEntityName "UserRegistrations" <>
             ,   _userEmail  = "userEmail"
             ,   _userRegistrationToken = "userRegistrationToken"
             }
+
+
+instance FromJSON UserRegistration where
+    parseJSON = genericParseJSON defaultOptions {fieldLabelModifier = Prelude.drop 1}
+
+instance ToJSON UserRegistration where
+    toJSON = genericToJSON defaultOptions {fieldLabelModifier = Prelude.drop 1}
+
+deriving instance Show UserRegistration
+deriving instance Eq UserRegistration
+
+UserRegistration
+    (B.LensFor id)
+    (B.LensFor userName)
+    (B.LensFor userMobile)
+    (B.LensFor userEmail)
+    (B.LensFor userRegistrationToken) = B.tableLenses
+
+insertExpression c = insertExpressionList [c]
+insertExpressionList cs = B.insertExpressions (toRowExpression <$> cs)
+    where
+        toRowExpression UserRegistration {..} =
+            UserRegistration
+                (B.val_ _id)
+                (B.val_ _userName)
+                (B.val_ _userMobile)
+                (B.val_ _userEmail)
+                (B.val_ _userRegistrationToken)
 

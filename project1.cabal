@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a35aafeaa251ee3d54430958942abee84a44e392f710461f86c331f253c6a4e9
+-- hash: a80341f40c3725044229da6257557ca445cafe35234f043c1b344dec13ed3205
 
 name:           project1
 version:        0.1.0.0
@@ -28,6 +28,8 @@ source-repository head
 library
   exposed-modules:
       Calculator
+      Database.DB
+      Database.Query.UserRegistration
       Database.Table.UserRegistration
       Lib
       Registration.RegisterUser
