@@ -1,1 +1,0 @@
-module Registration.DB.RegisterUserTableQuery where
