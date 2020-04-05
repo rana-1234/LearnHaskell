@@ -20,7 +20,7 @@ data Address =
         state :: Text,
         country :: Text,
         pin :: Text
-    } deriving (Show, Eq, Generic,ToJSON , FromJSON)
+    } deriving (Show, Eq, Generic, ToJSON , FromJSON)
 
 data AddUserRequest =
     AddUserRequest{
